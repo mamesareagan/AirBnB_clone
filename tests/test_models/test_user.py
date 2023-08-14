@@ -8,6 +8,7 @@ from models.base_model import BaseModel
 from models.user import User
 from models.engine.file_storage import FileStorage
 
+
 class TestUser(unittest.TestCase):
     """Unittests for testing the User class."""
 
@@ -56,7 +57,6 @@ class TestUser(unittest.TestCase):
         self.assertIn("'updated_at': {}".format(
             repr(self.user.updated_at)), s)
 
-        
     def test_to_dict(self):
         user_dict = self.user.to_dict()
         self.assertEqual(dict, type(user_dict))
@@ -66,8 +66,7 @@ class TestUser(unittest.TestCase):
                          user_dict["created_at"])
         self.assertEqual(self.user.updated_at.isoformat(),
                          user_dict["updated_at"])
-        
+
 
 if __name__ == "__main__":
     unittest.main()
-

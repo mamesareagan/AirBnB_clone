@@ -6,6 +6,7 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.city import City
 
+
 class TestCity(unittest.TestCase):
     """Unittests for testing the City class."""
 
@@ -58,7 +59,7 @@ class TestCity(unittest.TestCase):
             repr(self.city.created_at)), s)
         self.assertIn("'updated_at': {}".format(
             repr(self.city.updated_at)), s)
-        
+
     def test_to_dict(self):
         city_dict = self.city.to_dict()
         self.assertEqual(dict, type(city_dict))
@@ -68,7 +69,7 @@ class TestCity(unittest.TestCase):
                          city_dict["created_at"])
         self.assertEqual(self.city.updated_at.isoformat(),
                          city_dict["updated_at"])
-        
+
+
 if __name__ == "__main__":
     unittest.main()
-

@@ -13,6 +13,7 @@ class TestBaseModel(unittest.TestCase):
     def setUp(self):
         """Set up a BaseModel instance before each test."""
         self.base = BaseModel()
+
     def test_pep8(self):
         """Test pep8 styling."""
         style = pep8.StyleGuide(quiet=True)
@@ -66,7 +67,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn("'created_at': {}".format(repr(self.base.created_at)), s)
         self.assertIn("'updated_at': {}".format(repr(self.base.updated_at)), s)
 
-    
     def test_save(self):
         """Test save method."""
         old = self.base.updated_at
@@ -86,6 +86,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.base.updated_at.isoformat(),
                          base_dict["updated_at"])
         self.assertEqual(base_dict.get("_sa_instance_state", None), None)
+
 
 if __name__ == "__main__":
     unittest.main()

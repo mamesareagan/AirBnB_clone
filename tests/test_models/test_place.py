@@ -5,21 +5,22 @@ from models.base_model import BaseModel
 import unittest
 from models.place import Place
 
+
 class TestPlace(unittest.TestCase):
     """Unittests for Place class."""
-    
+
     def test_pep8(self):
         """Test pep8 styling."""
         style = pep8.StyleGuide(quiet=True)
         p = style.check_files(["models/place.py"])
         self.assertEqual(p.total_errors, 0, "fix pep8")
-    
+
     def test_instance_creation(self):
         """Test instance creation."""
         place = Place()
         self.assertIsInstance(place, Place)
         self.assertIsInstance(place, BaseModel)
-    
+
     def test_attributes(self):
         """Test attributes."""
         place = Place()
@@ -34,7 +35,7 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(hasattr(place, "latitude"))
         self.assertTrue(hasattr(place, "longitude"))
         self.assertTrue(hasattr(place, "amenity_ids"))
-    
+
     def test_default_values(self):
         """Test default values."""
         place = Place()
@@ -49,7 +50,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(place.latitude, 0)
         self.assertEqual(place.longitude, 0)
         self.assertEqual(place.amenity_ids, [])
-    
+
     def test_setting_values(self):
         """Test setting attribute values."""
         place = Place()
@@ -75,6 +76,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(place.latitude, 37.7749)
         self.assertEqual(place.longitude, -122.4194)
         self.assertEqual(place.amenity_ids, ["amenity1", "amenity2"])
+
 
 if __name__ == "__main__":
     unittest.main()
